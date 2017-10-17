@@ -114,11 +114,13 @@ let emptyArray =[];
 //and set it equal to an array of numbers
 //containing 10,11,12,13,14
 let nums = [10, 11, 12, 13, 14];
+let arrayOfJunk = ["name", 10, null, undefined, {}];
 
 //the `.length` property returns 
 //the number of elements in the array
 //TODO: write the length of `nums` to the console
 console.log(nums.length);
+console.log(arrayOfJunk.length); // can contain anything in array
 
 //you can add elements to the end of an array 
 //using the build-in .push() method
@@ -155,8 +157,8 @@ array to the console to make sure you
 did it right.
 */
 let evenNum = [];
-for(let i = 0; i < 50; i++) {
-    if(i % 2 == 0) {
+for (let i = 0; i < 50; i++) {
+    if (i % 2 == 0) {
         evenNum.push(i);
     }
 }
@@ -208,7 +210,8 @@ console.log(player.firstName);
 //TODO: get the lastName property using the 
 //array-like syntax, using a variable set to "lastName"
 //as the expression
-
+let getName = "lastName";
+console.log(player[getName]); // Works almost identically as . syntax
 
 //these key/value pairs are often called "properties"
 //because the syntax looks a lot like property 
@@ -239,7 +242,7 @@ console.groupEnd();
 console.group("keys/values from player using Object.keys()");
 //TODO: use Object.keys(player) to get an array with all the
 //keys, and then iterate that using a standard for loop
-for(let i = 0; i < Object.keys(player).length; i++) {
+for (let i = 0; i < Object.keys(player).length; i++) {
     console.log(Object.keys(player)[i], player[Object.keys(player)[i]]);
 }
 console.groupEnd();
@@ -297,11 +300,12 @@ a value returns `undefined` implicitly.
  * @returns {string}
  */
 function getGreeting(thePlayer) {
-    return "Hello " + thePlayer.firstName + "!";
+    return "Hello " + thePlayer.firstName + " " + thePlayer.lastName + 
+    ", you are awesome!";
 }
 //TODO: call getGreeting() passing your `player` variable
 //and write the return value to the console
-
+console.log(getGreeting(player));
 
 //TODO: change the getGreeting() function above
 //to include the player's last name as well as first name,
@@ -324,12 +328,16 @@ function getGreeting(thePlayer) {
  */
 function levelUp(thePlayer) {
     //TODO: implement this function
+    // totalPoints = 4, level = 0
+    thePlayer.level++;
+    thePlayer.totalPoints += Math.ceil(thePlayer.totalPoints * thePlayer.level * 0.1)
+    return thePlayer;
 }
 
 //create a new player
 let player2 = {
-    level: 0,
-    totalPoints: 10
+    level: 5,
+    totalPoints: 500
 }
 //pass that player to levelUp().
 //we can add the property access expression `.totalPoints` after levelUp() 
@@ -351,7 +359,11 @@ console.log("points after leveling-up: %d", levelUp(player2).totalPoints);
  */
 function randomIntegers(amount, max) {
     //TODO: implement this function according to the comments above
-
+    let randomNums = [];
+    for (let i = 0; i < amount; i++) {
+        randomNums.push(Math.round(Math.random() * max));
+    }
+    return randomNums;
 }
 
 let randomNums = randomIntegers(10, 100);
@@ -364,7 +376,15 @@ console.log("random integers:", randomNums);
  */
 function max(arrayOfNumbers) {
     //TODO: implement this function according to the comments above
+    let max = arrayOfNumbers[0];
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+    //     if (arrayOfNumbers[i] > max) {
+    //         max = arrayOfNumbers[i];
+    //     }
 
+        max = arrayOfNumbers[i] > max ? arrayOfNumbers[i] : max;
+    }
+    return max;
 }
 
 console.log("the maximum value in %o is %d", randomNums, max(randomNums));
@@ -377,7 +397,15 @@ console.log("the maximum value in %o is %d", randomNums, max(randomNums));
  * @returns {*[]}
  */
 function reverseArray(input) {
-    //TODO: implement this function according to the comments    
+    //TODO: implement this function according to the comments
+    // let reversed = [];
+    // for (let i = input.length - 1; i >= 0; i--) {
+    //     reversed.push(input[i]);
+    // }
+    // return reversed;
+
+    let reversed = input.reverse();
+    return reversed;
 }
 
 console.log("random integers reversed:", reverseArray(randomNums));
@@ -401,6 +429,9 @@ it doesn't put anything in between the elements.
 //remember that you already have a reverseArray() function
 let stringToReverse = "stressed";
 
+stringToReverse.split("");
+let reverseStress = reverseArray(stringToReverse.split("")).join("");
+console.log(reverseStress);
 
 /* FUNCTIONS CALLING FUNCTIONS */
 
