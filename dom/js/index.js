@@ -50,9 +50,20 @@ let state = {
 //TODO: implement functions to render the current state
 //to the page as new <tr> and <td> elements within the
 //<tbody> element that is already in the page.
-
-
-
+let tableBody = document.querySelector("tbody");
+// tableBody.innerText = "Hello world";
+let tableRow = document.createElement("tr");
+let td1 = document.createElement("td");
+let td2 = document.createElement("td");
+let td3 = document.createElement("td");
+td1.innerText = "Herp";
+td2.innerText = "Derp";
+td3.innerText = "Durr";
+tableRow.appendChild(td1);
+tableRow.appendChild(td2);
+tableRow.appendChild(td3);
+tableBody.appendChild(tableRow);
+console.log(tableBody);
 
 //TODO: listen for the "click" event raised by the 
 //prev/next page buttons, mutate the state.currentPage,

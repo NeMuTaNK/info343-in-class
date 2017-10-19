@@ -186,6 +186,9 @@ function randomIntegers(amount, max) {
     return randoms;
 }
 
+let someNum = randomIntegers(10, 72);
+console.log(someNum);
+
 /**
  * A reducer function to calculate the sum of
  * an array of numbers. This will be called once
@@ -197,19 +200,33 @@ function randomIntegers(amount, max) {
  */
 function sum(accumulator, num) {
     //TODO: implement this function
+    return accumulator + num;
 }
 
 //TODO: use randomIntegers() to generate an array of 
 //random integers and use .reduce() with sum*() to
 //calculate the sum of those integers.
 
+let sumNum = someNum.reduce(sum, 0);
+console.log(sumNum);
 
 //TODO: now define a max() reducer that reduces
 //an array of numbers to their maximum value.
 //Then use that with .reduce() to find the 
 //maximum value in an array of random integers.
 
+function max (n1, n2) {
+    // ternary conditional -- look at Intro to JS tutorial for more
+    return n2 > n1 ? n2 : 1; // If n2 > n1 then return n2, if not return n1
+}
 
+
+function min (n1, n2) {
+    return n2 < n1 ? n2 : n1;
+}
+
+let maxNum = someNum.reduce(min, 72);
+console.log(maxNum);
 
 //TODO: given that a JavaScript object is really
 //just a map from strings to values, and given
