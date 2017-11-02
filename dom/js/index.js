@@ -106,6 +106,7 @@ function render(state) {
     NEXT_PAGE_BUTTON.disabled = (state.currentPage === totalPages - 1);
 }
 
+
 //TODO: listen for the "click" event raised by the 
 //prev/next page buttons, mutate the state.currentPage,
 //and re-render
@@ -132,3 +133,8 @@ NAME_FILTER_INPUT.addEventListener("input", function() {
     state.currentPage = 0;
     render(state);
 });
+
+
+// Debugging
+// console.log or using alert()
+// debugger(); 
