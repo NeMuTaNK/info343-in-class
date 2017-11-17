@@ -1,0 +1,78 @@
+React is not a framework.
+
+Creates a ciew libray, so not lightweight at all
+
+Importance of state management
+
+Patterns, patterns, patterns
+    - MVC aka "Model View Controller" (Bi-directional)
+        - M -> The model of the data
+        - V -> What you see
+        - C -> interacts and modifies what is in V
+        - V & C are bi-directional
+
+    - Flux (Uni-Directional)
+
+Flux Pattern
+    - React, Flux -> State management library
+    - Redux is a an implementation similar to Flux
+    - Single storage
+
+Immutability and Functional Programming
+    - Never recycle a component
+    - Same input gives same output
+    - All dta flows down
+    - Ex: Memory Game, hard to keep all tiles known if flipped
+        - Using a global store, you are able to make all the tiles look into a single location to check for 
+          differences in the data (like a boolean saying its already flipped)
+        - Cannot be a different value
+
+Hierarchy of Building a React App
+1. Break the UI into diffierence component hierarchy (Think HTML and how its broken into parts)
+2. Build a static version of the UI in React
+3. Identify the minimal represntation of UI (the state object), figure out what is needed within the state
+4. Identify where the state should live
+5. Add inverse data flow
+
+App tier is the only thing that can change the state as all data is sent to it in a uni-directional.
+
+
+AirBnB Example
+
+APP -> Nav
+    -> Footer
+    -> Content -> Home
+               -> Experience
+               -> Restaurant
+Goal: Consolidate the services to themselves and make it extremely modular. UI should not be entangled together.
+
+*** Start at the bottom of the hierarchy and imagine what components will you be using a lot of ***
+
+Instagram Example
+Look into the HTML and see how the sections divide in to (It should be very compartmentalized)
+
+Nav
+    -> Logo Home
+
+    -> Search Bar
+
+    -> Buttons
+        -> Get the App
+        -> Sign Up / Log In
+
+Content
+    -> Header
+        -> Text Stuff
+            -> Title
+            -> Text Item
+        -> Button to Follow
+
+    -> Gallery
+        -> Card
+            -> Url for Picture
+            -> Number of Likes
+            -> Comments
+
+Footer
+    -> Menu
+    -> Trademark
