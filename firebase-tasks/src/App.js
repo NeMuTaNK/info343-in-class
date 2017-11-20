@@ -13,7 +13,7 @@ import PurgeButton from "./Components/PurgeButton";
 class App extends Component {
   render() {
     let tasksRef = firebase.database().ref("tasks");
-    let awesomeRef = firebase.database().ref("awesomeTasks");
+    // let awesomeRef = firebase.database().ref("awesomeTasks");
     return (
       <div>
         <div className="jumbotron bg-dark text-white">
@@ -28,11 +28,11 @@ class App extends Component {
               <PurgeButton tasksRef = {tasksRef} />
           </div>
 
-          <div className="container">
+          {/* <div className="container">
               <NewTaskForm tasksRef = {awesomeRef} />
               <TaskList tasksRef = {awesomeRef} />
               <PurgeButton tasksRef = {awesomeRef} />
-          </div>
+          </div> */}
         </section>
       </div>
     );

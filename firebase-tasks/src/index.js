@@ -10,14 +10,14 @@ import "firebase/database";
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyCOcB4kveEyFtF0yMG2pE12uaBizmYgzss",
-    authDomain: "info-343-react-app.firebaseapp.com",
-    databaseURL: "https://info-343-react-app.firebaseio.com",
-    projectId: "info-343-react-app",
-    storageBucket: "info-343-react-app.appspot.com",
-    messagingSenderId: "964318038111"
-  };
-  firebase.initializeApp(config);
+  apiKey: "AIzaSyCOcB4kveEyFtF0yMG2pE12uaBizmYgzss",
+  authDomain: "info-343-react-app.firebaseapp.com",
+  databaseURL: "https://info-343-react-app.firebaseio.com",
+  projectId: "info-343-react-app",
+  storageBucket: "info-343-react-app.appspot.com",
+  messagingSenderId: "964318038111"
+};
+firebase.initializeApp(config);
   
 firebase.auth().signInAnonymously()
   .then(() => {
@@ -25,4 +25,3 @@ firebase.auth().signInAnonymously()
     registerServiceWorker();
   })
   .catch(error => console.error(error));
-

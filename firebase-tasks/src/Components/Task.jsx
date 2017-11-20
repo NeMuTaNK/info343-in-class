@@ -9,6 +9,10 @@ export default class Task extends React.Component {
             color: "#AAA",
             textDecoration: "line-through"
         }
+    
+    
+        console.log("Printing this: ", this);
+        
         let task = this.props.taskSnapshot.val();
         return (
             <li style = { task.done ? doneTaskStyles : taskStyles }
